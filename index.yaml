@@ -3,6 +3,16 @@ entries:
   test-nginx-app:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-11-20T19:57:27.825412241Z"
+    description: A Helm chart for Kubernetes
+    digest: 3b82c8c2105773c63c0ba62974ada9508957376a9b730c8027db64f659f46a48
+    name: test-nginx-app
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/test-nginx-app-0.1.5/test-nginx-app-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-11-20T19:44:01.371677564Z"
     description: A Helm chart for Kubernetes
     digest: 638fcdbf10d72d7355859d27790fc4e060b74afb2222009f6d8dfc919545728d
