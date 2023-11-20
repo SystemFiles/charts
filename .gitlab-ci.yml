@@ -1,0 +1,18 @@
+image: quay.io/helmpack/chart-testing:latest
+
+stages:
+  - test
+
+lint:
+  stage: test
+  variables:
+    CONFIG_FILE: ".ci/chart-testing.config.yml"
+    SCHEMA_FILE: ".ci/chart-schema.yml"
+    LINTCONF_FILE: ".ci/lintconf.yml"
+  script:
+    - ct version
+    - ct list-changed --conifg $CONFIG_FILE --target-branch $CI_DEFAULT_BRANCH
+    - ct lint --conifg $CONFIG_FILE --chart-yaml-schema $SCHEMA_FILE --lint-conf $LINTCONF_FILE --target-branch $CI_DEFAULT_BRANCH --chart-dirs stable
+  rules:
+    - if: $CI_PIPELINE_SOURCE == 'merge_request_event'
+    - if: $CI_COMMIT_BRANCH != $CI_DEFAULT_BRANCH
