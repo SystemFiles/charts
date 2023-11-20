@@ -7,6 +7,12 @@ on:
 
 jobs:
   release:
+    permissions:
+      actions: write 
+      contents: write
+      deployments: write
+      pages: write
+      statuses: read
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
