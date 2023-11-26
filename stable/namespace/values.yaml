@@ -1,0 +1,6 @@
+name: ""
+allowedNodeports: 0
+allowedStorage: '0Gi'
+# should be one of 'system' or 'general'
+purpose: general
+labels: {}

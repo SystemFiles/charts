@@ -1,0 +1,24 @@
+apiVersion: v1
+  kind: ResourceQuota
+  metadata:
+    name: storage
+    annotations:
+      kubernetes.io/description: |
+        A resource quota that helps to manage and limit the total amount of persistant storage space used for the namespace.
+  spec:
+    hard:
+      requests:
+        storage: {{ .Values.allowedStorage | default 0 }}
+
+---
+apiVersion: v1
+  kind: ResourceQuota
+  metadata:
+    name: nodeports
+    annotations:
+      kubernetes.io/description: |
+        A service quota to help manage limits for the number of nodeports which can be implemented in a namespace.
+  spec:
+    hard:
+      services:
+        nodeports: {{ .Values.allowedNodeports | default 0 }}
