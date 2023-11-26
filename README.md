@@ -8,4 +8,3 @@ helm repo update
 
 helm install my-release sykesdev/<chart>
 ```
-

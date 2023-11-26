@@ -1,0 +1,10 @@
+secret:
+  repositories: []
+    # - name: private-charts
+    #   gitUrl: https://gitlab.sykesdev.ca/kubernetes-apps/private.git
+    #   gitUsername: $GITLAB_USERNAME
+    #   gitPassword: $GITLAB_TOKEN
+application:
+  cilium: {}
+    # id: 1
+    # clusterName: sykesdev-main
