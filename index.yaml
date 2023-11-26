@@ -1,5 +1,27 @@
 apiVersion: v1
 entries:
+  bootstrap:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-26T17:36:58.101424316Z"
+    description: A helm chart for bootstrapping an RKE2 cluster platform
+    digest: 213c30339069ba97fcd6e609578b73a2b23a1186ea6bb83a0a44a681ff3c7895
+    name: bootstrap
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/bootstrap-0.1.0/bootstrap-0.1.0.tgz
+    version: 0.1.0
+  namespace:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-11-26T17:36:58.231001135Z"
+    description: Creates an opinionated namespace
+    digest: 1c449e52e66e288c6b94571f8a5d14222a9f84ab589a920d8a0e96c60d75ae6b
+    name: namespace
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.0/namespace-1.0.0.tgz
+    version: 1.0.0
   test-nginx-app:
   - apiVersion: v2
     appVersion: 1.16.0
