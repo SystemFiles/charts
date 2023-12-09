@@ -1,16 +1,15 @@
 apiVersion: v2
-name: bootstrap
-description: A helm chart for bootstrapping an RKE2 cluster platform
+name: sykesdev-platform
+description: A helm chart for bootstrapping an opinionated RKE2 cluster platform for sykesdev
 type: application
 
-version: 0.1.1
+version: 0.1.0
 appVersion: "1.16.0"
 
 dependencies:
   - name: core
     condition: core.enabled
-    version: 0.1.1
+    version: 0.1.0
   - name: application
     condition: application.enabled
     version: 0.1.0
-
