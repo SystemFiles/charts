@@ -70,7 +70,6 @@ spec:
         {{ toYaml .Values.metallb.config | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.metallb.namespace.name }}
   syncPolicy:
     automated:
       selfHeal: true
