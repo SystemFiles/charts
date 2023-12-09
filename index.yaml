@@ -11,6 +11,17 @@ entries:
     urls:
     - https://github.com/SystemFiles/charts/releases/download/bootstrap-0.1.0/bootstrap-0.1.0.tgz
     version: 0.1.0
+  metallb-config:
+  - apiVersion: v2
+    appVersion: 0.13.12
+    created: "2023-12-09T03:58:07.219804583Z"
+    description: A Helm Chart for deploying an opinionated metallb CR configurations
+    digest: f98f29b578ad932ded7bb424d6bc6188711f6be3d49b74a04c70ba73fccb8090
+    name: metallb-config
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/metallb-config-0.1.0/metallb-config-0.1.0.tgz
+    version: 0.1.0
   namespace:
   - apiVersion: v2
     appVersion: 1.16.0
@@ -22,6 +33,27 @@ entries:
     urls:
     - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.0/namespace-1.0.0.tgz
     version: 1.0.0
+  sykesdev-platform:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-12-09T03:58:07.349534605Z"
+    dependencies:
+    - condition: core.enabled
+      name: core
+      repository: ""
+      version: 0.1.0
+    - condition: application.enabled
+      name: application
+      repository: ""
+      version: 0.1.0
+    description: A helm chart for bootstrapping an opinionated RKE2 cluster platform
+      for sykesdev
+    digest: ed228c312a590703ec756496d89a91882f05f6f4af2ef52af55f9384d448b096
+    name: sykesdev-platform
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/sykesdev-platform-0.1.0/sykesdev-platform-0.1.0.tgz
+    version: 0.1.0
   test-nginx-app:
   - apiVersion: v2
     appVersion: 1.16.0
