@@ -18,7 +18,7 @@ spec:
         {{ toYaml .Values.metallb.namespace | nindent 8 }}
   destination:
     server: https://kubernetes.default.svc
-    namespace: {{ .Values.metallb.namespace.name }}
+    namespace: argocd-system
   syncPolicy:
     automated:
       selfHeal: true
