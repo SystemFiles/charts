@@ -12,7 +12,7 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: namespace
-    targetRevision: "1.0.1"
+    targetRevision: "1.0.2"
     helm:
       values: |
         {{ toYaml .Values.metallb.namespace | nindent 8 }}
