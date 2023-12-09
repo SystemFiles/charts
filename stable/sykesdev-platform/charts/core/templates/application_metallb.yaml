@@ -1,0 +1,76 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.metallb.namespace.name }}-namespace
+  namespace: argocd-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: main
+  source:
+    repoURL: https://charts.sykesdev.ca
+    chart: namespace
+    targetRevision: "1.0.0"
+    helm:
+      values: |
+        {{ toYaml .Values.metallb.namespace | nindent 8 }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.metallb.namespace.name }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb
+  namespace: argocd-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: main
+  source:
+    repoURL: https://metallb.github.io/metallb
+    chart: metallb
+    targetRevision: 0.13.12
+    helm:
+      values: |
+        controller:
+          nodeSelector:
+            node.sykesdev.ca/use: system
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.metallb.namespace.name }}
+  syncPolicy:
+    automated:
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: metallb-address-pool
+  namespace: argocd-system
+  annotations:
+    argocd.argoproj.io/sync-wave: "0"
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: main
+  source:
+    repoURL: https://charts.sykesdev.ca
+    chart: metallb-config
+    targetRevision: 0.1.0
+    helm:
+      values: |
+        {{ toYaml .Values.metallb.config | nindent 8 }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.metallb.namespace.name }}
+  syncPolicy:
+    automated:
+      selfHeal: true

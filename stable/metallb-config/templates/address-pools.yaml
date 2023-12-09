@@ -1,0 +1,9 @@
+{{- if not (eq (len .Values.addressPools) 0) -}}
+apiVersion: metallb.io/v1beta1
+kind: IPAddressPool
+metadata:
+  name: {{ include "metallb.name" . }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  addresses: {{ toYaml .Values.addressPools | nindent 4 }}
+{{- end -}}

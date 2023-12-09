@@ -1,4 +1,0 @@
-Deployed core platform components:
-
-- repositories (secrets)
-- cilium
