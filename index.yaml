@@ -14,6 +14,16 @@ entries:
   metallb-config:
   - apiVersion: v2
     appVersion: 0.13.12
+    created: "2023-12-09T18:00:34.621606277Z"
+    description: A Helm Chart for deploying an opinionated metallb CR configurations
+    digest: bfa6b6446a4eb13ffccfbce5ceef2b2567eb6d55fa4d057eab6a27751edfcd37
+    name: metallb-config
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/metallb-config-0.1.1/metallb-config-0.1.1.tgz
+    version: 0.1.1
+  - apiVersion: v2
+    appVersion: 0.13.12
     created: "2023-12-09T03:58:07.219804583Z"
     description: A Helm Chart for deploying an opinionated metallb CR configurations
     digest: f98f29b578ad932ded7bb424d6bc6188711f6be3d49b74a04c70ba73fccb8090
@@ -25,6 +35,16 @@ entries:
   namespace:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-12-09T18:00:34.753569507Z"
+    description: Creates an opinionated namespace
+    digest: 8c94fe2748a1edba224bb68f3a50c8fbbaec93b2131750c1c0b12d60527c9183
+    name: namespace
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.1/namespace-1.0.1.tgz
+    version: 1.0.1
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-11-26T17:36:58.231001135Z"
     description: Creates an opinionated namespace
     digest: 1c449e52e66e288c6b94571f8a5d14222a9f84ab589a920d8a0e96c60d75ae6b
@@ -34,6 +54,26 @@ entries:
     - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.0/namespace-1.0.0.tgz
     version: 1.0.0
   sykesdev-platform:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-12-09T18:00:34.869590931Z"
+    dependencies:
+    - condition: core.enabled
+      name: core
+      repository: ""
+      version: 0.1.0
+    - condition: application.enabled
+      name: application
+      repository: ""
+      version: 0.1.0
+    description: A helm chart for bootstrapping an opinionated RKE2 cluster platform
+      for sykesdev
+    digest: a6baaa02052608f8a7b7237fc71a923e98ccb3be49dbf2e90bee4d691cb72009
+    name: sykesdev-platform
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/sykesdev-platform-0.1.1/sykesdev-platform-0.1.1.tgz
+    version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-12-09T03:58:07.349534605Z"
