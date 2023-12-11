@@ -3,7 +3,7 @@ name: sykesdev-platform
 description: A helm chart for bootstrapping an opinionated RKE2 cluster platform for sykesdev
 type: application
 
-version: 0.1.5
+version: 0.1.6
 appVersion: "1.16.0"
 
 dependencies:
