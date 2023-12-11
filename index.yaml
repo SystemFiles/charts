@@ -45,6 +45,16 @@ entries:
   namespace:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-12-11T02:49:41.472908095Z"
+    description: Creates an opinionated namespace
+    digest: ed9b4934dd0ebd8f1cb7756ba7f88434ee53e9bcace81443affb2d165e917417
+    name: namespace
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.4/namespace-1.0.4.tgz
+    version: 1.0.4
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-12-11T01:33:18.01967709Z"
     description: Creates an opinionated namespace
     digest: 9306a3ce9eb850fbc773995c66a5dfb1217c196dc9a1444175b4b3edea6625f4
@@ -84,6 +94,30 @@ entries:
     - https://github.com/SystemFiles/charts/releases/download/namespace-1.0.0/namespace-1.0.0.tgz
     version: 1.0.0
   sykesdev-platform:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2023-12-11T02:49:41.589523143Z"
+    dependencies:
+    - condition: core.enabled
+      name: core
+      repository: ""
+      version: 0.1.0
+    - condition: application.enabled
+      name: application
+      repository: ""
+      version: 0.1.0
+    - condition: management.enabled
+      name: management
+      repository: ""
+      version: 0.1.0
+    description: A helm chart for bootstrapping an opinionated RKE2 cluster platform
+      for sykesdev
+    digest: ae43a2fea2ca539e108a829bdfd01c8add8023ba1541960dc9d80dea3dccb0a2
+    name: sykesdev-platform
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/sykesdev-platform-0.1.8/sykesdev-platform-0.1.8.tgz
+    version: 0.1.8
   - apiVersion: v2
     appVersion: 1.16.0
     created: "2023-12-11T02:15:42.135286885Z"
