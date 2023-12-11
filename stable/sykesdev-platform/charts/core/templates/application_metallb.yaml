@@ -10,11 +10,13 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: namespace
-    targetRevision: 1.0.3
+    targetRevision: 1.0.4
     helm:
       values: |
         name: {{ .Values.metallb.namespace.name }}
+
         purpose: {{ .Values.metallb.namespace.purpose }}
+
         labels: {{ toYaml .Values.metallb.labels | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
