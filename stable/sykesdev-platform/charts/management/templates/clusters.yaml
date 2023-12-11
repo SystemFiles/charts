@@ -11,6 +11,8 @@ stringData:
   name: {{ .name }}
   clusterResources: {{ .clusterResources | quote }}
   server: {{ .server }}
-  namespaces: {{ .namespaces | quote }}
+  {{- with .namespaces }}
+  namespaces: {{ . | quote }}
+  {{- end }}
   config: {{ .config | quote }}
 {{- end -}}

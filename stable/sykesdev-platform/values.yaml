@@ -17,7 +17,6 @@ core:
 management:
   clusters:
   - name: in-cluster
-    namespaces: 'argocd-system'
     server: https://kubernetes.default.svc
     clusterResources: "true"
     config: '{"tlsClientConfig":{"insecure":false}}'
