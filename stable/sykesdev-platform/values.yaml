@@ -14,5 +14,13 @@ core:
     #   addressPools: []
         # - 192.168.0.0/30
 
+management:
+  clusters:
+  - name: in-cluster
+    namespaces: 'argocd-system'
+    server: https://kubernetes.default.svc
+    clusterResources: "false"
+    config: '{"tlsClientConfig":{"insecure":false}}'
+
 application:
   enabled: false
