@@ -61,7 +61,7 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: metallb-config
-    targetRevision: 0.1.6
+    targetRevision: 0.1.7
     helm:
       values: |-
         {{ toYaml .Values.metallb.config | nindent 8 }}
