@@ -12,7 +12,8 @@ spec:
     chart: namespace
     targetRevision: 1.0.4
     helm:
-      values: {{ toYaml .Values.metallb.namespace | nindent 12 }}
+      values: |
+          {{ toYaml .Values.metallb.namespace | nindent 12 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd-system
@@ -62,7 +63,8 @@ spec:
     chart: metallb-config
     targetRevision: 0.1.3
     helm:
-      values: {{ toYaml .Values.metallb.config | nindent 10 }}
+      values: |
+          {{ toYaml .Values.metallb.config | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.metallb.namespace.name }}
