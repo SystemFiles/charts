@@ -1,3 +1,4 @@
+{{- if .Values.storageQuota.enabled -}}
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -8,8 +9,9 @@ metadata:
 spec:
   hard:
     requests:
-      storage: {{ .Values.allowedStorage}}
-
+      storage: {{ .Values.storageQuota.allowedStorage}}
+{{- end -}}
+{{- if .Values.serviceQuota.enabled -}}
 ---
 apiVersion: v1
 kind: ResourceQuota
@@ -21,4 +23,5 @@ metadata:
 spec:
   hard:
     services:
-      nodeports: {{ .Values.allowedNodeports }}
+      nodeports: {{ .Values.serviceQuota.allowedNodeports }}
+{{- end -}}

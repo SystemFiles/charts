@@ -12,10 +12,11 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: namespace
-    targetRevision: "1.0.2"
     helm:
       values: |
-        {{ toYaml .Values.metallb.namespace | nindent 8 }}
+        name: {{ .Values.metallb.namespace.name }}
+        purpose: {{ .Values.metallb.namespace.purpose }}
+        labels: {{ toYaml .Values.metallb.labels | nindent 10 }}
   destination:
     server: https://kubernetes.default.svc
     namespace: argocd-system
@@ -43,6 +44,9 @@ spec:
         controller:
           nodeSelector:
             node.sykesdev.ca/use: system
+          tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
   destination:
     server: https://kubernetes.default.svc
     namespace: {{ .Values.metallb.namespace.name }}

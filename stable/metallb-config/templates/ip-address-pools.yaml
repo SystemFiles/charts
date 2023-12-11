@@ -2,7 +2,7 @@
 apiVersion: metallb.io/v1beta1
 kind: IPAddressPool
 metadata:
-  name: {{ include "metallb.name" . }}
+  name: {{ .Release.Name }}
   namespace: {{ .Release.Namespace }}
 spec:
   addresses: {{ toYaml .Values.addressPools | nindent 4 }}

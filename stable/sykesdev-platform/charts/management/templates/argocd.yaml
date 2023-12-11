@@ -1,0 +1,50 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ArgoCD
+metadata:
+  name: argocd-instance
+  namespace: argocd-system
+  labels:
+    app.kubernetes.io/managed-by: argocd-operator
+    app.kubernetes.io/name: argocd-instance
+    app.sykesdev.ca/bootstrap: "true"
+spec:
+  image: argoproj/argocd
+  disableAdmin: false
+  initialRepositories: |
+    - type: helm
+      url: https://charts.sykesdev.ca/
+      name: sykesdev
+  nodePlacement:
+    nodeSelector:
+      node.sykesdev.ca/use: system
+    tolerations:
+    - key: node-role.kubernetes.io/control-plane
+      operator: Exists
+  server:
+    host: argocd.sykesdev.ca
+    autoscale:
+      enabled: false
+    route:
+      enabled: false
+    grpc:
+      ingress:
+        enabled: false
+    ingress:
+      enabled: false
+    insecure: true
+    replicas: 1
+    service:
+      type: ClusterIP
+  resourceExclusions: |
+    - apiGroups:
+        - cilium.io
+      kinds:
+        - CiliumIdentity
+      clusters:
+        - '*'
+    - apiGroups:
+        - velero.io
+      kinds:
+        - Backup
+      clusters:
+        - '*'

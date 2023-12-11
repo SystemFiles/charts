@@ -1,1 +1,0 @@
-Done deploying application platform components

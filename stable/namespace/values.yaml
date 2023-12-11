@@ -1,6 +1,12 @@
 name: ""
-allowedNodeports: 0
-allowedStorage: '0Gi'
+serviceQuota:
+  enabled: false
+  allowedNodeports: 0
+storageQuota:
+  enabled: false
+  allowedStorage: '0Gi'
+
 # should be one of 'system' or 'general'
 purpose: general
-labels: {}
+
+# labels: {}

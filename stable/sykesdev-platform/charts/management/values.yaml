@@ -1,0 +1,11 @@
+# Default values for management.
+
+# tolerations:
+#   - 
+
+clusters:
+  - name: in-cluster
+    namespaces: 'argocd-system'
+    server: https://kubernetes.default.svc
+    clusterResources: "false"
+    config: '{"tlsClientConfig":{"insecure":false}}'

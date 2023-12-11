@@ -4,5 +4,4 @@ metadata:
   name: {{ .Values.name }}
   labels:
     namespace.sykesdev.ca/purpose: {{ .Values.purpose }}
-    kubernetes.io/managed-by: Helm
-    {{ toYaml .Values.labels }}
+    {{ toYaml .Values.labels | indent 4 }}

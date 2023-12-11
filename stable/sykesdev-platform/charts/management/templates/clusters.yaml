@@ -1,0 +1,16 @@
+{{- range .Values.clusters -}}
+apiVersion: v1
+kind: Secret
+metadata:
+  name: argocd-instance-{{ .name }}
+  namespace: argocd-system
+  labels:
+    argocd.argoproj.io/secret-type: cluster
+type: Opaque
+stringData:
+  name: {{ .name }}
+  clusterResources: {{ .clusterResources | quote }}
+  server: {{ .server }}
+  namespaces: {{ .namespaces | quote }}
+  config: {{ .config | quote }}
+{{- end -}}

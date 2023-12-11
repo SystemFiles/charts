@@ -1,0 +1,17 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: platform-management
+  namespace: argocd-system
+  finalizers:
+    - resources-finalizer.argocd.argoproj.io
+spec:
+  description: Platform management resources are managed and deployed via this project
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
+  destinations:
+  - namespace: '*'
+    server: '*'
+  sourceRepos:
+  - '*'
