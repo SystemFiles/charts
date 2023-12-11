@@ -12,7 +12,9 @@ core:
 
     config:
       addressPools:
-        - 172.20.0.0/30
+        - name: default
+          addresses:
+          - 172.20.0.0/30
 
 management:
   clusters:

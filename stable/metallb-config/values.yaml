@@ -1,3 +1,5 @@
 # -- IP address pools for metallb to use
 addressPools: []
-  # - 192.168.0.0/30
+# - name: example
+#   addresses: 
+#   - 192.168.0.0.0/30
