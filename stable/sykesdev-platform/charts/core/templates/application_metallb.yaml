@@ -10,6 +10,7 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: namespace
+    targetRevision: 1.0.3
     helm:
       values: |
         name: {{ .Values.metallb.namespace.name }}
@@ -62,6 +63,7 @@ spec:
   source:
     repoURL: https://charts.sykesdev.ca
     chart: metallb-config
+    targetRevision: 0.1.2
     helm:
       values: |
         {{ toYaml .Values.metallb.config | nindent 8 }}
