@@ -126,6 +126,30 @@ entries:
   sykesdev-platform:
   - apiVersion: v2
     appVersion: 1.16.0
+    created: "2023-12-11T14:10:31.445139427Z"
+    dependencies:
+    - condition: core.enabled
+      name: core
+      repository: ""
+      version: 0.1.0
+    - condition: application.enabled
+      name: application
+      repository: ""
+      version: 0.1.0
+    - condition: management.enabled
+      name: management
+      repository: ""
+      version: 0.1.0
+    description: A helm chart for bootstrapping an opinionated RKE2 cluster platform
+      for sykesdev
+    digest: 04f0e1daca58842a33ec0e5ba3ac9d65711b3f7987c5ef5662b0c98611c3fcdc
+    name: sykesdev-platform
+    type: application
+    urls:
+    - https://github.com/SystemFiles/charts/releases/download/sykesdev-platform-0.1.14/sykesdev-platform-0.1.14.tgz
+    version: 0.1.14
+  - apiVersion: v2
+    appVersion: 1.16.0
     created: "2023-12-11T14:07:20.39837311Z"
     dependencies:
     - condition: core.enabled
