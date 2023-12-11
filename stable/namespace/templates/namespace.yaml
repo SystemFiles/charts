@@ -4,4 +4,6 @@ metadata:
   name: {{ .Values.name }}
   labels:
     namespace.sykesdev.ca/purpose: {{ .Values.purpose }}
-    {{ toYaml .Values.labels | indent 4 }}
+    {{- with .Values.labels -}}
+    {{ toYaml . | nindent 4 }}
+    {{- end -}}
