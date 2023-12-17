@@ -1,0 +1,55 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: {{ .Values.localPathProvisioner.namespace.name }}-namespace
+  namespace: argocd-system
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: platform-management
+  source:
+    repoURL: https://charts.sykesdev.ca
+    chart: namespace
+    targetRevision: 1.0.4
+    helm:
+      values: |
+        {{ toYaml .Values.localPathProvisioner.namespace | nindent 10 }}
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: argocd-system
+  syncPolicy:
+    automated:
+      selfHeal: true
+---
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: local-path-provisioner
+  namespace: local-path-provisioner-system
+  finalizers:
+  - resources-finalizer.argocd.argoproj.io
+spec:
+  project: platform-management
+  source:
+    repoURL: {{ default "https://github.com/rancher/local-path-provisioner.git" .Values.localPathProvisioner.repoURL | quote }}
+    targetRevision: {{ default "v0.0.26" .Values.localPathProvisioner.version | quote }}
+    path: {{ default "deploy/chart/local-path-provisioner" .Values.localPathProvisioner.path | quote }}
+    helm:
+      values: |
+        storageClass:
+          name: local-path
+          reclaimPolicy: {{ default "Delete" .Values.localPathProvisioner.storageClass.reclaimPolicy }}
+          create: true
+          defaultClass: {{ default false .Values.localPathProvisioner.storageClass.defaultClass }}
+          defaultVolumeType: hostPath
+          nodeSelector:
+            node.sykesdev.ca/use: system
+          tolerations:
+          - key: node-role.kubernetes.io/control-plane
+            operator: Exists
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: {{ .Values.localPathProvisioner.namespace.name }}
+  syncPolicy:
+    automated:
+      selfHeal: true
