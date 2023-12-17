@@ -25,7 +25,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
   name: local-path-provisioner
-  namespace: local-path-provisioner-system
+  namespace: argocd-system
   finalizers:
   - resources-finalizer.argocd.argoproj.io
 spec:
@@ -37,7 +37,7 @@ spec:
     helm:
       values: |
         storageClass:
-          name: local-path
+          name: {{ default "local-path" .Values.localPathProvisioner.storageClass.name }}
           reclaimPolicy: {{ default "Delete" .Values.localPathProvisioner.storageClass.reclaimPolicy }}
           create: true
           defaultClass: {{ default false .Values.localPathProvisioner.storageClass.defaultClass }}

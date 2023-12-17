@@ -1,6 +1,20 @@
 core:
   enabled: true
 
+  localPathProvisioner:
+    namespace:
+      name: "local-path-provisioner-system"
+      purpose: "system"
+      labels:
+        pod-security.kubernetes.io/enforce: baseline
+        pod-security.kubernetes.io/audit: baseline
+        pod-security.kubernetes.io/warn: baseline
+
+    storageClass:
+      name: local-path
+      defaultClass: true
+      reclaimPolicy: Delete
+
   metallb:
     namespace:
       name: "metallb-system"

@@ -1,5 +1,15 @@
 # Default values for core.
 
+localPathProvisioner:
+    namespace:
+      name: "local-path-provisioner-system"
+      purpose: "system"
+
+    storageClass:
+      name: local-path
+      defaultClass: true
+      reclaimPolicy: Delete
+
 metallb:
   namespace:
     name: "metallb-system"
